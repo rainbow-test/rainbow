@@ -1,0 +1,12 @@
+if: branch =~ ^master$|^release|^development
+
+language: swift
+
+os: osx
+osx_image: xcode10.1
+
+install: true # 如果不需要安装，即跳过安装阶段，就直接设为true
+#script: true  # script: true表示不执行任何脚本，状态直接设为成功。
+script: xcodebuild -project Rainbow.xcodeproj -target Rainbow -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+# workspace：xcodebuild -workspace TravisExample.xcworkspace -scheme TravisExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+# project：xcodebuild -project Rainbow.xcodeproj -target Rainbow -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
